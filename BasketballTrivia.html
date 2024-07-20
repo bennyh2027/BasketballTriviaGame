@@ -1,0 +1,799 @@
+<html>
+	<head>
+		<title>Dub Nation Jeopardy</title>
+        <link rel="stylesheet" href = "TriviaGameStyles.css"> 
+	</head>
+	<body>
+
+		<div class="cover">
+		</div>
+
+		<div class="title">🌟 Dub Nation Jeopardy 🌟</div>
+
+
+        <div class="cover2">
+
+            <div>
+                <div class="player1Title"> Player 1 </div>
+            </div>
+
+            <div>
+
+                <div class="jeopardygrid">
+                    <div id="box1" class="color1"><br>200 PTS</div>
+                    <div id="box2" class="color1"><br>50 PTS</div>
+                    <div id="box3" class="color1"><br>400 PTS</div>
+
+                    <div id="box4" class="color2"><br>150 PTS</div>
+                    <div id="box5" class="color2"><br>100 PTS</div>
+                    <div id="box6" class="color2"><br>430 PTS</div>
+            
+                    <div id="box7" class="color3"><br>300 PTS</div>
+                    <div id="box8" class="color3"><br>160 PTS</div>
+                    <div id="box9" class="color3"><br>500 PTS</div>
+
+                    <div id="box10" class="color4"><br>280 PTS</div>
+                    <div id="box11" class="color4"><br>170 PTS</div>
+                    <div id="box12" class="color4"><br>80 PTS</div>
+
+                    <div id="box13" class="color5"><br>375 PTS</div>
+                    <div id="box14" class="color5"><br>250 PTS</div>
+                    <div id="box15" class="color5"><br>75 PTS</div>
+                </div>
+
+            </div>
+
+            <div>
+                <div class="player2Title">Player 2</div>
+            </div>
+
+        </div>
+		
+        <div class="QandASection">
+			<div style="background-color: #FFFB73;"><!--This is the left section of the bottom part-->
+				<font face="Garamond">Player 1 Score:
+					<br><br>
+					<input type="text" id="playerNames" placeholder="Player 1 Name">
+					<br><br>
+					Points: 
+					<div id="Player1Points"></div>
+				</font>
+			</div> 
+
+			<div> <!--This is the middle section of bottom part-->
+				<br>
+				Question
+				<br>
+				<div id="questionBox"></div>
+				<br>
+				Answer
+
+				<div id="answerSection"></div>
+
+				<div id="outputRemarks"></div>
+			</div> 
+
+			<div style="background-color: #FFA33C;"> <!--Right section of bottom part-->
+				<font face="Garamond">Player 2 Score:
+					<br><br>
+					<input type="text" id="playerNames" placeholder="Player 2 Name">
+					<br><br>
+					Points: 
+					<div id="Player2Points"></div>
+				</font>
+			</div>
+
+		</div>
+
+
+	</body>
+	<script>
+		let currentPlayer = 1; 
+		let Player1Total = 0; 
+		let Player2Total = 0; 
+
+		function switchPlayer() 
+		{
+		    currentPlayer = currentPlayer === 1 ? 2 : 1;
+		} 
+
+		//----------------------------------------------------------------------------
+
+		box1.onclick=function()
+		{
+			questionBox.innerHTML="";
+			answerSection.innerHTML=""; 
+			outputRemarks.innerHTML="";
+
+			box1.innerHTML="<br><div style='color: #AA2B1D'> NA </div>"; 
+			questionBox.innerHTML="During the years, GSW had a time when everyone would put on “We Believe” shirts because the fans believed the team would win despite all the challenges they were facing at the time. What NBA season was this?";
+
+    		 answerSection.innerHTML = 
+		    		
+		    							"<div class='Choices'>" +
+			    							"A). 2008 to 2009 Season<br>"  +
+			    							"B). 2000 to 2001 Season<br>" +
+			    							"C). 2006 to 2007 Season<br>" +
+			    							"D). 1994 to 1995 Season<br>" +
+			    						"</div>" + 
+			    						"<input type='text' id='MPAnswerBox'>" + "<br>" +
+			    						"<button id='submitAnswer'>Submit</button>";
+
+    		submitAnswer.onclick=function()
+    		{ 
+
+    			var Answer=MPAnswerBox.value; 
+
+    			if (Answer=="C" || Answer=="c")
+    			{
+    				outputRemarks.innerHTML = "<br>Correct! Player " + currentPlayer + " has gained 200 POINTS";
+
+    				if (currentPlayer==1)
+    				{
+    					Player1Total += 200; 
+    					Player1Points.innerHTML = Player1Total;
+    				}
+
+    				else
+    				{
+    					Player2Total += 200; 
+    					Player2Points.innerHTML = Player2Total; 
+    				}
+    			}
+
+    			else 
+    			{
+    				outputRemarks.innerHTML = "<br>Sorry! Your answer is incorrect. The correct answer is C (2006 to 2007 Season) because during this time, the Golden State Warriors played the Dallas Mavericks where they faced against the famous Dirk Nowitzski. Because the Dallas Mavericks were a top Seed at the time and the Golden State Warriors were the lowest seed, this is why the Warriors Fans wore 'We Believe' shirts."; 
+    			}
+
+    			switchPlayer();
+    		}
+		}
+
+		box2.onclick=function()
+		{
+			questionBox.innerHTML="";
+			answerSection.innerHTML="";
+			outputRemarks.innerHTML=""; 
+
+			box2.innerHTML="<br><div style='color: #AA2B1D'> NA </div>"; 
+			questionBox.innerHTML="When was the Golden State Warriors founded?";
+			answerSection.innerHTML = "<input type='text' id='defaultAnswerBox'>";
+    		answerSection.innerHTML += "<br><br><button id='submitAnswer'>Submit</button>"; 
+
+    		submitAnswer.onclick=function()
+    		{ 
+
+    			var Answer=defaultAnswerBox.value; 
+
+    			if (Answer=="1946")
+    			{
+    				outputRemarks.innerHTML = "<br>Correct! Player " + currentPlayer + " has gained 50 POINTS";
+
+    				if (currentPlayer==1)
+    				{
+    					Player1Total += 50;
+    					Player1Points.innerHTML = Player1Total;
+    				}
+
+    				else
+    				{
+    					Player2Total += 50;
+    					Player2Points.innerHTML = Player2Total; 
+    				}
+    			}
+
+    			else 
+    			{
+    				outputRemarks.innerHTML = "<br>Sorry! Your answer is incorrect. The correct answer is 1946. This was when the Warriors was first established as the rise of basketball became increasingly popular. During this time, they were founded by Fulks and Arizin who also convinced superiors to create the first league called the BAA."; 
+    			}
+
+    			switchPlayer();
+    		}
+		}
+		
+		box3.onclick = function () 
+		{
+			questionBox.innerHTML="";
+			answerSection.innerHTML=""; 
+			outputRemarks.innerHTML="";
+
+			box3.innerHTML="<br><div style='color: #AA2B1D'> NA </div>";
+		    questionBox.innerHTML = "During the 2006-2007 NBA season, the Warriors upset a top team at the time which were the Dallas Mavericks. Who was head coach during this season?";
+
+		    answerSection.innerHTML = 
+		    		
+		    							"<div class='Choices'>" +
+			    							"A). Don Nelson<br>"  +
+			    							"B). Jacob Barnes<br>" +
+			    							"C). Joshua Evergreen<br>" +
+			    							"D). Rick Barry<br>" +
+			    						"</div>" + 
+			    						"<input type='text' id='MPAnswerBox'>" + "<br>" +
+			    						"<button id='submitAnswer'>Submit</button>";
+
+			submitAnswer.onclick=function()
+    		{ 
+
+    			var Answer=MPAnswerBox.value; 
+
+    			if (Answer=="A" || Answer=="a")
+    			{
+    				outputRemarks.innerHTML = "<br>Correct! Player " + currentPlayer + " has gained 400 POINTS";
+
+    				if (currentPlayer==1)
+    				{
+    					Player1Total += 400;
+    					Player1Points.innerHTML = Player1Total;
+    				}
+
+    				else
+    				{
+    					Player2Total += 400;
+    					Player2Points.innerHTML =Player2Total; 
+    				}
+    			}
+
+    			else 
+    			{
+    				outputRemarks.innerHTML = "<br>Sorry! Your answer is incorrect. The correct answer is A (Don Nelson). He had left the warriors but afterwards, he joined them again in 2006 to 2007 to help coach the team to the playoffs. He also had experience coaching the Dallas Mavericks so he knew how to exploit their weaknesses. Thus, Don Nelson was the head coach during this season."; 
+    			}
+
+    			switchPlayer();
+    		}
+	
+
+		}
+
+
+		box4.onclick=function()
+		{
+			questionBox.innerHTML="";
+			answerSection.innerHTML=""; 
+			outputRemarks.innerHTML="";
+
+			box4.innerHTML="<br><div style='color: #CC561E'> NA </div>";
+			questionBox.innerHTML="Before they were known as the Golden State Warriors, what was the original name the team had?";
+			answerSection.innerHTML = "<input type='text' id='defaultAnswerBox'>";
+    		answerSection.innerHTML += "<br><br><button id='submitAnswer'>Submit</button>"; 
+
+    		submitAnswer.onclick=function()
+    		{ 
+
+    			var Answer=defaultAnswerBox.value; 
+
+    			if (Answer=="San Francisco Warriors")
+    			{
+    				outputRemarks.innerHTML = "<br>Correct! Player " + currentPlayer + " has gained 150 POINTS";
+
+    				if (currentPlayer==1)
+    				{
+    					Player1Total += 150;
+    					Player1Points.innerHTML = Player1Total;
+    				}
+
+    				else
+    				{
+    					Player2Total += 150;
+    					Player2Points.innerHTML = Player2Total; 
+    				}
+    			}
+
+    			else 
+    			{
+    				outputRemarks.innerHTML = "<br>Sorry! Your answer is incorrect. The correct answer is San Francisco Warriors. At first, the Warriors were named Philadelphia Warriors; however, after being bought by some San Francisco Bay Area Investors, that's when they changed their nmae to the San Francisco Warriors. Afterwards, they then changed it again to the Golden State Warriors when they relocated to Oakland and then back to the bay."; 
+    			}
+
+    			switchPlayer();
+    		}
+		}
+
+		box5.onclick=function()
+		{
+			questionBox.innerHTML="";
+			answerSection.innerHTML=""; 
+			outputRemarks.innerHTML="";
+
+			box5.innerHTML="<br><div style='color: #CC561E'> NA </div>";
+			questionBox.innerHTML="What is the current nickname given to the Warriors that came from shortening the word Warriors?"
+			answerSection.innerHTML = 
+		    		
+		    							"<div class='Choices'>" +
+			    							"A). Golden Warriors<br>"  +
+			    							"B). San Fran Champs<br>" +
+			    							"C). Dub Nation<br>" +
+			    							"D). The W's<br>" +
+			    						"</div>" + 
+			    						"<input type='text' id='MPAnswerBox'>" + "<br>" +
+			    						"<button id='submitAnswer'>Submit</button>";
+
+			submitAnswer.onclick=function()
+    		{ 
+
+    			var Answer=MPAnswerBox.value; 
+
+    			if (Answer=="C" || Answer=="c")
+    			{
+    				outputRemarks.innerHTML = "<br>Correct! Player " + currentPlayer + " has gained 100 POINTS";
+
+    				if (currentPlayer==1)
+    				{
+    					Player1Total += 100;
+    					Player1Points.innerHTML = Player1Total;
+    				}
+
+    				else
+    				{
+    					Player2Total += 100
+    					Player2Points.innerHTML = Player2Total; 
+    				}
+    			}
+
+    			else 
+    			{
+    				outputRemarks.innerHTML = "<br>Sorry! Your answer is incorrect. The correct answer is C (Dub Nation). Recall that the first letter of Warriors is W. Spelled out, you get 'dub-a-u'. Thus, using the first word 'Dub', we get Dub Nation."; 
+    			}
+
+    			switchPlayer();
+    		}
+	
+		}
+
+		box6.onclick=function()
+		{
+			questionBox.innerHTML="";
+			answerSection.innerHTML=""; 
+			outputRemarks.innerHTML="";
+
+			box6.innerHTML="<br><div style='color: #CC561E'> NA </div>";
+			questionBox.innerHTML="Which Hall of Famer played for the Warriors through most of his career and was nicknamed “Thunder” for his powerful dunks?"
+			answerSection.innerHTML = "<input type='text' id='defaultAnswerBox'>";
+    		answerSection.innerHTML += "<br><br><button id='submitAnswer'>Submit</button>"; 
+
+    		submitAnswer.onclick=function()
+    		{ 
+
+    			var Answer=defaultAnswerBox.value; 
+
+    			if (Answer=="Nate Thurmond")
+    			{
+    				outputRemarks.innerHTML = "<br>Correct! Player " + currentPlayer + " has gained 430 POINTS";
+
+    				if (currentPlayer==1)
+    				{
+    					Player1Total += 430;
+    					Player1Points.innerHTML = Player1Total;
+    				}
+
+    				else
+    				{
+    					Player2Total += 430;
+    					Player2Points.innerHTML = Player2Total; 
+    				}
+    			}
+
+    			else 
+    			{
+    				outputRemarks.innerHTML = "<br>Sorry! Your answer is incorrect. The correct answer is Nate Thurmond. Recall that Nate Thurmond was a future Hall of Fame player who had incredible and powerful dunks. With these dunks came about the nickname 'Thunder' which referred to how loud his dunks were due to the force he was exerting in each one of his dunks."; 
+    			}
+
+    			switchPlayer();
+    		}
+		}
+
+		box7.onclick=function()
+		{
+			questionBox.innerHTML="";
+			answerSection.innerHTML=""; 
+			outputRemarks.innerHTML="";
+
+			box7.innerHTML="<br><div style='color: #EF8D32'> NA </div>";
+			questionBox.innerHTML="What was the name of the first African American head coach of the Golden State Warriors to win an NBA title?"
+			answerSection.innerHTML = "<input type='text' id='defaultAnswerBox'>";
+    		answerSection.innerHTML += "<br><br><button id='submitAnswer'>Submit</button>"; 
+
+    		submitAnswer.onclick=function()
+    		{ 
+
+    			var Answer=defaultAnswerBox.value; 
+
+    			if (Answer=="Alvin Attles")
+    			{
+    				outputRemarks.innerHTML = "<br>Correct! Player " + currentPlayer + " has gained 300 POINTS";
+
+    				if (currentPlayer==1)
+    				{
+    					Player1Total += 300;
+    					Player1Points.innerHTML = Player1Total;
+    				}
+
+    				else
+    				{
+    					Player2Total += 300;
+    					Player2Points.innerHTML = Player2Total; 
+    				}
+    			}
+
+    			else 
+    			{
+    				outputRemarks.innerHTML = "<br>Sorry! Your answer is incorrect. The correct answer is Alvin Attles. He was the first ever African American head coach of the team when they won an NBA title. This marked an important event in history as it showed his team management, skills, and experience."; 
+    			}
+
+    			switchPlayer();
+    		}
+		}
+
+		box8.onclick=function()
+		{
+			questionBox.innerHTML="";
+			answerSection.innerHTML=""; 
+			outputRemarks.innerHTML="";
+
+			box8.innerHTML="<br><div style='color: #EF8D32'> NA </div>";
+			questionBox.innerHTML="What is the name of the first athlete who played for Golden State and was considered to be a future “Hall of Famer?”"
+			answerSection.innerHTML = 
+		    		
+		    							"<div class='Choices'>" +
+			    							"A). Joe Shulk<br>"  +
+			    							"B). Wilt Chamberlin<br>" +
+			    							"C). Jonathan Atwater<br>" +
+			    							"D). Jason Green<br>" +
+			    						"</div>" + 
+			    						"<input type='text' id='MPAnswerBox'>" + "<br>" +
+			    						"<button id='submitAnswer'>Submit</button>";
+
+			submitAnswer.onclick=function()
+    		{ 
+
+    			var Answer=MPAnswerBox.value; 
+
+    			if (Answer=="B" || Answer=="b")
+    			{
+    				outputRemarks.innerHTML = "<br>Correct! Player " + currentPlayer + " has gained 160 POINTS";
+
+    				if (currentPlayer==1)
+    				{
+    					Player1Total += 160;
+    					Player1Points.innerHTML = Player1Total;
+    				}
+
+    				else
+    				{
+    					Player2Total += 160;
+    					Player2Points.innerHTML = Player2Total; 
+    				}
+    			}
+
+    			else 
+    			{
+    				outputRemarks.innerHTML = "<br>Sorry! Your answer is incorrect. The correct answer is B (Wilt Chamberlin). As the first player to ever play for the Warriors, he was considered a Hall of Famer due to his great leadership and skills. In fact, he even set an all time record at the time for the player who scored the most points in a game when he delivered a high of 60 points in one match."; 
+    			}
+
+    			switchPlayer();
+    		}
+		}
+
+		box9.onclick=function()
+		{
+			questionBox.innerHTML="";
+			answerSection.innerHTML=""; 
+			outputRemarks.innerHTML="";
+
+			box9.innerHTML="<br><div style='color: #EF8D32'> NA </div>";
+			questionBox.innerHTML="Before Stephen Curry, who held the record for the most three-pointers made in a single season for the Warriors?"
+			answerSection.innerHTML = "<input type='text' id='defaultAnswerBox'>";
+    		answerSection.innerHTML += "<br><br><button id='submitAnswer'>Submit</button>"; 
+
+    		submitAnswer.onclick=function()
+    		{ 
+
+    			var Answer=defaultAnswerBox.value; 
+
+    			if (Answer=="Donyell Marshall")
+    			{
+    				outputRemarks.innerHTML = "<br>Correct! Player " + currentPlayer + " has gained 500 POINTS";
+
+    				if (currentPlayer==1)
+    				{
+    					Player1Total += 500;
+    					Player1Points.innerHTML = Player1Total;
+    				}
+
+    				else
+    				{
+    					Player2Total += 500;
+    					Player2Points.innerHTML = Player2Total; 
+    				}
+    			}
+
+    			else 
+    			{
+    				outputRemarks.innerHTML = "<br>Sorry! Your answer is incorrect. The correct answer is Donyell Marshall. He was best known for this scoring ability and his versatility on the court. In fact, on March 13, 2005, he set an NBA record by making 12 three pointers in a single game."; 
+    			}
+
+    			switchPlayer();
+    		}
+		}
+
+		box10.onclick=function()
+		{
+			questionBox.innerHTML="";
+			answerSection.innerHTML=""; 
+			outputRemarks.innerHTML="";
+
+			box10.innerHTML="<br><div style='color: #BECA5C'> NA </div>";
+			questionBox.innerHTML="In 1975, the San Francisco Warriors dominated a team by winning 4 straight games. Which team was this?"
+			answerSection.innerHTML = 
+		    		
+		    							"<div class='Choices'>" +
+			    							"A). Atlanta Hawks<br>"  +
+			    							"B). Dallas Mavericks<br>" +
+			    							"C). Houston Rockets<br>" +
+			    							"D). Washington Bullets<br>" +
+			    						"</div>" + 
+			    						"<input type='text' id='MPAnswerBox'>" + "<br>" +
+			    						"<button id='submitAnswer'>Submit</button>";
+
+			submitAnswer.onclick=function()
+    		{ 
+
+    			var Answer=MPAnswerBox.value; 
+
+    			if (Answer=="D" || Answer=="d")
+    			{
+    				outputRemarks.innerHTML = "<br>Correct! Player " + currentPlayer + " has gained 280 POINTS";
+
+    				if (currentPlayer==1)
+    				{
+    					Player1Total += 280;
+    					Player1Points.innerHTML = Player1Total;
+    				}
+
+    				else
+    				{
+    					Player2Total += 280;
+    					Player2Points.innerHTML = Player2Total; 
+    				}
+    			}
+
+    			else 
+    			{
+    				outputRemarks.innerHTML = "<br>Sorry! Your answer is incorrect. The correct answer is D (Washington Bullets). This was actually one of the best games for the Warriors because they beat the Washington Bullets 4-0. It was a straight blowout and because of this, many fans remember this event even up until today. "; 
+    			}
+
+    			switchPlayer();
+    		}
+		}
+
+		box11.onclick=function()
+		{
+			questionBox.innerHTML="";
+			answerSection.innerHTML=""; 
+			outputRemarks.innerHTML="";
+
+			box11.innerHTML="<br><div style='color: #BECA5C'> NA </div>";
+			questionBox.innerHTML="How many NBA championships have the Golden State Warriors won in total?"
+			answerSection.innerHTML = "<input type='text' id='defaultAnswerBox'>";
+    		answerSection.innerHTML += "<br><br><button id='submitAnswer'>Submit</button>"; 
+
+    		submitAnswer.onclick=function()
+    		{ 
+
+    			var Answer=defaultAnswerBox.value; 
+
+    			if (Answer=="7")
+    			{
+    				outputRemarks.innerHTML = "<br>Correct! Player " + currentPlayer + " has gained 170 POINTS";
+
+    				if (currentPlayer==1)
+    				{
+    					Player1Total += 170;
+    					Player1Points.innerHTML = Player1Total;
+    				}
+
+    				else
+    				{
+    					Player2Total += 170;
+    					Player2Points.innerHTML = Player2Total; 
+    				}
+    			}
+
+    			else 
+    			{
+    				outputRemarks.innerHTML = "<br>Sorry! Your answer is incorrect. The correct answer is 7. They won in 1947 against the Chicago Stags, in 1956 against the Fort Wayne Pistons, in 1975 against the Washington Bullets, in 2015 against the Cleveland Cavaliers, in 2017 against the Cleveland Cavaliers, in 2018 against the Cleveland Cavaliers, and in 2022 against the Boston Celtics."; 
+    			}
+
+    			switchPlayer();
+    		}
+		}
+
+		box12.onclick=function()
+		{
+			questionBox.innerHTML="";
+			answerSection.innerHTML=""; 
+			outputRemarks.innerHTML="";
+
+			box12.innerHTML="<br><div style='color: #BECA5C'> NA </div>";
+			questionBox.innerHTML="In which year did the Warriors win their first ever BAA championship?"
+			answerSection.innerHTML = "<input type='text' id='defaultAnswerBox'>";
+    		answerSection.innerHTML += "<br><br><button id='submitAnswer'>Submit</button>"; 
+
+    		submitAnswer.onclick=function()
+    		{ 
+
+    			var Answer=defaultAnswerBox.value; 
+
+    			if (Answer=="1947")
+    			{
+    				outputRemarks.innerHTML = "<br>Correct! Player " + currentPlayer + " has gained 80 POINTS";
+
+    				if (currentPlayer==1)
+    				{
+    					Player1Total += 80;
+    					Player1Points.innerHTML = Player1Total;
+    				}
+
+    				else
+    				{
+    					Player2Total += 80;
+    					Player2Points.innerHTML = Player2Total; 
+    				}
+    			}
+
+    			else 
+    			{
+    				outputRemarks.innerHTML = "<br>Sorry! Your answer is incorrect. The correct answer is 1947. This was also the first year when the BAA League was created. During this time, the Warriors were the first team to win the first championship in the BAA League."; 
+    			}
+
+    			switchPlayer();
+    		}
+		}
+
+		box13.onclick=function()
+		{
+			questionBox.innerHTML="";
+			answerSection.innerHTML=""; 
+			outputRemarks.innerHTML="";
+
+			box13.innerHTML="<br><div style='color: #FFA36C'> NA </div>";
+			questionBox.innerHTML="Who is considered one of the greatest players in Warriors history known for his scoring ability and flamboyant style? "
+			answerSection.innerHTML = 
+		    		
+		    							"<div class='Choices'>" +
+			    							"A). Chris Mullin<br>"  +
+			    							"B). Wilt Chamberlin<br>" +
+			    							"C). Danny Hopkins<br>" +
+			    							"D). Rick Barry<br>" +
+			    						"</div>" + 
+			    						"<input type='text' id='MPAnswerBox'>" + "<br>" +
+			    						"<button id='submitAnswer'>Submit</button>";
+
+			submitAnswer.onclick=function()
+    		{ 
+
+    			var Answer=MPAnswerBox.value; 
+
+    			if (Answer=="D" || Answer=="d")
+    			{
+    				outputRemarks.innerHTML = "<br>Correct! Player " + currentPlayer + " has gained 375 POINTS";
+
+    				if (currentPlayer==1)
+    				{
+    					Player1Total += 375;
+    					Player1Points.innerHTML = Player1Total;
+    				}
+
+    				else
+    				{
+    					Player2Total += 375;
+    					Player2Points.innerHTML = Player2Total; 
+    				}
+    			}
+
+    			else 
+    			{
+    				outputRemarks.innerHTML = "<br>Sorry! Your answer is incorrect. The correct answer is D (Rick Barry). He had such a good scoring ability and helped the Warriors to pace the floor. Rick Barry was one of the greatest players in Warriors history and isn't forgotten to this day."; 
+    			}
+
+    			switchPlayer();
+    		}
+		}
+
+		box14.onclick=function()
+		{
+			questionBox.innerHTML="";
+			answerSection.innerHTML=""; 
+			outputRemarks.innerHTML="";
+
+			box14.innerHTML="<br><div style='color: #FFA36C'> NA </div>";
+			questionBox.innerHTML="Before 2010, how many championships did the Golden State Warriors win?"
+			answerSection.innerHTML = "<input type='text' id='defaultAnswerBox'>";
+    		answerSection.innerHTML += "<br><br><button id='submitAnswer'>Submit</button>";
+
+    		submitAnswer.onclick=function()
+    		{ 
+
+    			var Answer=defaultAnswerBox.value; 
+
+    			if (Answer=="3")
+    			{
+    				outputRemarks.innerHTML = "<br>Correct! Player " + currentPlayer + " has gained 250 POINTS";
+
+    				if (currentPlayer==1)
+    				{
+    					Player1Total += 250;
+    					Player1Points.innerHTML = Player1Total;
+    				}
+
+    				else
+    				{
+    					Player2Total += 250;
+    					Player2Points.innerHTML = Player2Total; 
+    				}
+    			}
+
+    			else 
+    			{
+    				outputRemarks.innerHTML = "<br>Sorry! Your answer is incorrect. The correct answer is 3. The Warriors won a championship in 1947 against the against the Chicago Stags, in 1956 against the Fort Wayne Pistons, and in 1975 against the Washington Bullets."; 
+    			}
+
+    			switchPlayer();
+    		} 
+		}
+
+		box15.onclick=function()
+		{
+			questionBox.innerHTML="";
+			answerSection.innerHTML=""; 
+			outputRemarks.innerHTML="";
+
+			box15.innerHTML="<br><div style='color: #FFA36C'> NA </div>";
+			questionBox.innerHTML="When the Golden State Warriors were founded, where were they originally based?"
+			answerSection.innerHTML = 
+		    		
+		    							"<div class='Choices'>" +
+			    							"A). Chicago<br>"  +
+			    							"B). Philadelphia<br>" +
+			    							"C). San Francisco<br>" +
+			    							"D). Virginia<br>" +
+			    						"</div>" + 
+			    						"<input type='text' id='MPAnswerBox'>" + "<br>" +
+			    						"<button id='submitAnswer'>Submit</button>";
+
+			submitAnswer.onclick=function()
+    		{ 
+
+    			var Answer=MPAnswerBox.value; 
+
+    			if (Answer=="B" || Answer=="b")
+    			{
+    				outputRemarks.innerHTML = "<br>Correct! Player " + currentPlayer + " has gained 75 POINTS";
+
+    				if (currentPlayer==1)
+    				{
+    					Player1Total += 75;
+    					Player1Points.innerHTML = Player1Total;
+    				}
+
+    				else
+    				{
+    					Player2Total += 75;
+    					Player2Points.innerHTML = Player2Total; 
+    				}
+    			}
+
+    			else 
+    			{
+    				outputRemarks.innerHTML = "<br>Sorry! Your answer is incorrect. The correct answer is B (Philadelphia). When the Warriors were first founded, it was in Philadelphia. It wasn't until after some Bay Area investors bought the team that they relocated to San Francisco, then to Oakland, and then back to San Francisco."; 
+    			}
+
+    			switchPlayer();
+    		}
+
+		}
+
+		
+	</script>
+</html>
+
+        

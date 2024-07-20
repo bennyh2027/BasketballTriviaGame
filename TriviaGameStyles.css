@@ -1,0 +1,255 @@
+* {
+    margin: 0; 
+    padding: 0; 
+}
+
+body{
+    background-image:
+    url(https://www.jeopardy.com/modules/custom/j6/j6_game/images/bg-categories-d.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    }
+
+.cover{
+    height: 120%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    color: white;
+}
+
+.title{
+    color: white;
+    font-size: 40px;
+    font-family: Georgia;
+    position: absolute;
+    font-weight: bolder;
+    background-color: #1E3163;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    top: 5%;
+    left: 29.5%;
+    width: 45%;
+}
+
+.cover2{
+    height: auto;
+    width: 100%;
+    position: absolute;
+    top: 15%;
+    left: 0%;
+    display: grid; 
+    grid-template-columns: 20% 60% 20%; 
+    text-align: center;
+} /*this is to go over cover 1 so the elements dont inherit the opacity.*/
+
+.player1Title{
+    color: #3D30A2;
+    font-size: 6rem;
+    font-family: cursive;
+    position: absolute;
+    transform: rotate(-90deg);
+    top: 40%;
+    left: -1%; 
+    text-align: center;
+    font-weight: bolder;
+    font-style: italic;
+    background-color: #FFFB73;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 10px 10px 10px 10px;
+}
+
+.jeopardygrid{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    text-align: center;
+}
+
+.jeopardygrid>div{
+    padding: 35px;
+    height: auto;
+    border: 2px dashed white;
+}
+
+.jeopardygrid>div:hover{
+    opacity: 0.8;
+    transition: opacity 0.5s ease; 
+    cursor: pointer;
+}
+
+.player2Title{
+    color: black;
+    font-size: 6rem;
+    font-family: Cursive;
+    position: absolute;
+    transform: rotate(90deg);
+    top: 40%;
+    right: -1%; 
+    text-align: center;
+    font-weight: bolder;
+    font-style: italic;
+    background-color: #FFA33C;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 10px 10px 10px 10px #FF6C22;
+}
+
+.color1{
+    background-color: #AA2B1D;
+    color: white;
+    font-size: 25px;
+    font-family: fantasy;
+    font-style: italic;
+}
+
+.color2{
+    background-color: #CC561E;
+    color: white;
+    font-size: 25px;
+    font-family: fantasy;
+    font-style: italic;
+}
+
+.color3{
+    background-color: #EF8D32;
+    color: white;
+    font-size: 25px;
+    font-family: fantasy;
+    font-style: italic;
+}
+
+.color4{
+    background-color: #BECA5C;
+    color: white;
+    font-size: 25px;
+    font-family: fantasy;
+    font-style: italic;
+}
+
+.color5{
+    background-color: #FFA36C;
+    color: white;
+    font-size: 25px;
+    font-family: fantasy;
+    font-style: italic;
+}
+
+.QandASection{
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    background-color: #f7ede2;
+    height: 100%;
+    color: black;
+    font-family: georgia;
+    font-size: 50px;
+    text-align: center;
+    font-weight: bolder;
+    }
+
+.QandASection>div{
+    border: 1px dashed darkblue;
+}
+
+#questionBox{
+    font-family: Georgia;
+    font-size: 20px;
+    margin-top: 10px;
+    width: 55%;
+    height: 15%;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px dotted black;
+    padding: 5px;
+}
+
+#defaultAnswerBox{
+    width: 20%;
+    height: 10%;
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: Verdana;
+    font-weight: bolder;
+    text-align: left;
+}
+
+#submitAnswer{
+    font-size: 15px;
+    font-weight: bolder;
+    font-family: cursive;
+    background-color: tomato;
+    padding: 5px;
+    color: black;
+    width: 8%;
+    border: 2px solid white;
+    margin-top: 10px;
+}
+
+#outputRemarks{
+    font-size: 15px;
+    color: black;
+    text-align: center;
+}
+
+.choices{
+    font-size: 20px;
+    color: black;
+}
+
+#MPAnswerBox{
+    margin-top: 15px;
+    height: auto;
+    width: 15%;
+    border-radius: 8px;
+    color: black;
+    font-family: cursive;
+    font-size: 20px;
+}
+
+#playerNames{
+    width: 80%;
+    height: auto;
+    border-radius: 8px;
+    color: black;
+    font-family: Cursive;
+    font-weight: bolder;
+    text-align: center;
+    font-size: 25px;
+}
+
+#Player1Points{
+    color: black;
+    font-size: 40px;
+    font-family: Georgia;
+    text-align: center;
+}
+
+#Player2Points{
+    color: black;
+    font-size: 40px;
+    font-family: Georgia;
+    text-align: center;
+}
+
+/* ----------------------Media Queries for Laptop 1280x900 minimum------------------------ */
+@media (min-width: 1280px) {
+    .player1Title{ 
+        left: -3%; 
+    }
+
+    .player2Title{
+        right: -3%;
+    }
+
+    .title{
+        left: 26.8%;
+        min-width: 40%;
+    }
+}
